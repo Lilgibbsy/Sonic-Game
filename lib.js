@@ -8,10 +8,11 @@ function moveGround() {
   ctx.arc(ballX, ballY, 20, 0, 2 * Math.PI);
   ctx.fill();
   ctx.restore();
+  ballX += ballMoveX;
   ballY = ballY + ballMoveY;
   ballMoveY = ballMoveY + acceleration;
-  groundX -= 1;
-  groundTwoX -= 1;
+  groundX -= 2;
+  groundTwoX -= 2;
   ctx.drawImage(img, groundX, groundY);
   ctx.drawImage(img, groundTwoX, groundTwoY);
   if (groundTwoX == 0) {
@@ -20,4 +21,8 @@ function moveGround() {
   if (groundX == 0) {
     groundTwoX = 700;
   }
-} 
+  if (ballY >= 522) {
+    acceleration = 0;
+    ballMoveY = 0;
+  }
+}

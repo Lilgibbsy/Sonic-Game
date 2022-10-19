@@ -10,42 +10,40 @@ let groundTwoY = 540;
 let ballX = 50;
 let ballY = 522;
 let ballMoveY = 0;
+let ballMoveX = 0;
 let acceleration = 0.1;
 let groundBounce = -7;
 let gravHeight = -8;
 
 requestAnimationFrame(animation);
 function animation() {
-  ctx.beginPath();
-  ctx.fillStyle = "aqua";
-  ctx.fillRect(0, 0, 700, 600);
-  ctx.restore();
-  ctx.beginPath();
-  ctx.fillStyle = "blue";
-  ctx.arc(ballX, ballY, 20, 0, 2 * Math.PI);
-  ctx.fill();
-  ctx.restore();
-  ballY = ballY + ballMoveY;
-  ballMoveY = ballMoveY + acceleration;
-  if (ballY > 522) {
-    ballMoveY = groundBounce;
-    gravHeight++;
-  }
-  if (ballMoveY == gravHeight) {
-    groundBounce++;
-  }
-  if (gravHeight == 0) {
-    groundBounce = 0;
-  }
-  groundX -= 2;
-  groundTwoX -= 2;
-  ctx.drawImage(img, groundX, groundY);
-  ctx.drawImage(img, groundTwoX, groundTwoY);
-  if (groundTwoX == 0) {
-    groundX = 700;
-  }
-  if (groundX == 0) {
-    groundTwoX = 700;
-  }
+  moveGround();
   requestAnimationFrame(animation);
+}
+
+document.addEventListener("keydown", keydownHandler);
+function keydownHandler(event) {
+  if (event.code == "Space") {
+    ballMoveY = groundBounce;
+    acceleration = 0;
+
+    console.log(ballMoveY, groundBounce);
+  } else if (event.code == "KeyA") {
+    ballMoveX = -5;
+    console.log(ballMoveX);
+  } else if (event.code == "KeyD") {
+    ballMoveX = 5;
+    console.log(ballMoveX);
+  }
+}
+document.addEventListener("keyup", keyupHandler);
+function keyupHandler(event) {
+  if (event.code == "Space") {
+    ballY = ballY + ballMoveY;
+    ballMoveY = 3;
+  } else if (event.code == "KeyD") {
+    ballMoveX = 0;
+  } else if (event.code == "KeyA") {
+    ballMoveX = 0;
+  }
 }
