@@ -20,4 +20,4 @@ function moveGround() {
   if (groundX == 0) {
     groundTwoX = 700;
   }
-}
+} 
