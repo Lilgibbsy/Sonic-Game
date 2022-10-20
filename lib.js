@@ -100,9 +100,16 @@ function moveGround() {
   x[3] -= 2;
   x[4] -= 2;
 
+  x[8] -= xSpeed[2];
+
+  if (x[8] < 0) {
+    xSpeed[2] = -1;
+  } else if (x[8] > 600) {
+    xSpeed[2] = 1;
+  }
   ctx.drawImage(img, x[3], y[3]);
   ctx.drawImage(img, x[4], y[4]);
-  ctx.drawImage(imgTwo, 600, 0);
+  ctx.drawImage(imgTwo, x[8], y[8]);
   if (x[4] == 0) {
     x[3] = 700;
   }

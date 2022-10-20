@@ -16,6 +16,7 @@ const x = [
   700 + Math.round(Math.random() * 50),
   800 + Math.round(Math.random() * 50),
   800 + Math.round(Math.random() * 50),
+  600,
 ];
 const y = [
   Math.round(Math.random() * 520),
@@ -26,8 +27,9 @@ const y = [
   Math.round(Math.random() * 520),
   Math.round(Math.random() * 520),
   Math.round(Math.random() * 520),
+  0,
 ];
-const xSpeed = [0, 2];
+const xSpeed = [0, 2, 1];
 const ySpeed = [0];
 
 requestAnimationFrame(animation);
