@@ -3,17 +3,32 @@ ctx = cnv.getContext("2d");
 cnv.width = 700;
 cnv.height = 600;
 let img = document.getElementById("img");
-let groundX = 0;
-let groundY = 540;
-let groundTwoX = 700;
-let groundTwoY = 540;
-let ballX = 50;
-let ballY = 522;
-let ballMoveY = 0;
-let ballMoveX = 0;
-let acceleration = 0.1;
-let groundBounce = -7;
-let gravHeight = -8;
+let imgTwo = document.getElementById("imgTwo");
+let imgThree = document.getElementById("imgThree");
+let score = document.getElementById("score");
+let points = 0;
+const x = [
+  700 + Math.round(Math.random() * 25),
+  50,
+  0,
+  0,
+  700,
+  700 + Math.round(Math.random() * 50),
+  800 + Math.round(Math.random() * 50),
+  800 + Math.round(Math.random() * 50),
+];
+const y = [
+  Math.round(Math.random() * 520),
+  495,
+  0,
+  540,
+  540,
+  Math.round(Math.random() * 520),
+  Math.round(Math.random() * 520),
+  Math.round(Math.random() * 520),
+];
+const xSpeed = [0, 2];
+const ySpeed = [0];
 
 requestAnimationFrame(animation);
 function animation() {
@@ -24,26 +39,21 @@ function animation() {
 document.addEventListener("keydown", keydownHandler);
 function keydownHandler(event) {
   if (event.code == "Space") {
-    ballMoveY = groundBounce;
-    acceleration = 0;
-
-    console.log(ballMoveY, groundBounce);
+    ySpeed[0] = -7;
   } else if (event.code == "KeyA") {
-    ballMoveX = -5;
-    console.log(ballMoveX);
+    xSpeed[0] = -5;
   } else if (event.code == "KeyD") {
-    ballMoveX = 5;
-    console.log(ballMoveX);
+    xSpeed[0] = 5;
   }
 }
 document.addEventListener("keyup", keyupHandler);
 function keyupHandler(event) {
   if (event.code == "Space") {
-    ballY = ballY + ballMoveY;
-    ballMoveY = 3;
+    y[1] = y[1] + ySpeed[0];
+    ySpeed[0] = 3;
   } else if (event.code == "KeyD") {
-    ballMoveX = 0;
+    xSpeed[0] = 0;
   } else if (event.code == "KeyA") {
-    ballMoveX = 0;
+    xSpeed[0] = 0;
   }
 }
