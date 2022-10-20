@@ -38,7 +38,7 @@ function animation() {
 
 document.addEventListener("keydown", keydownHandler);
 function keydownHandler(event) {
-  if (event.code == "Space") {
+  if (event.code == "KeyW") {
     ySpeed[0] = -7;
   } else if (event.code == "KeyA") {
     xSpeed[0] = -5;
@@ -48,7 +48,7 @@ function keydownHandler(event) {
 }
 document.addEventListener("keyup", keyupHandler);
 function keyupHandler(event) {
-  if (event.code == "Space") {
+  if (event.code == "KeyW") {
     y[1] = y[1] + ySpeed[0];
     ySpeed[0] = 3;
   } else if (event.code == "KeyD") {
