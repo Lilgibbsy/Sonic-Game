@@ -5,6 +5,8 @@ cnv.height = 600;
 let img = document.getElementById("img");
 let imgTwo = document.getElementById("imgTwo");
 let imgThree = document.getElementById("imgThree");
+let imgFour = document.getElementById("imgFour");
+let imgFive = document.getElementById("imgFive");
 let score = document.getElementById("score");
 let points = 0;
 const x = [
@@ -41,11 +43,11 @@ function animation() {
 document.addEventListener("keydown", keydownHandler);
 function keydownHandler(event) {
   if (event.code == "KeyW") {
-    ySpeed[0] = -7;
+    ySpeed[0] = -4;
   } else if (event.code == "KeyA") {
-    xSpeed[0] = -5;
+    xSpeed[0] = -3;
   } else if (event.code == "KeyD") {
-    xSpeed[0] = 5;
+    xSpeed[0] = 3;
   }
 }
 document.addEventListener("keyup", keyupHandler);
