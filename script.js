@@ -1,3 +1,4 @@
+//Variables
 let cnv = document.getElementById("myCanvas");
 ctx = cnv.getContext("2d");
 cnv.width = 700;
@@ -9,8 +10,10 @@ let imgFour = document.getElementById("imgFour");
 let imgFive = document.getElementById("imgFive");
 let score = document.getElementById("score");
 let points = 0;
+let onAndOff = true;
+//X array
 const x = [
-  700 + Math.round(Math.random() * 25),
+  700 + Math.round(Math.random() * 50),
   50,
   0,
   0,
@@ -19,7 +22,11 @@ const x = [
   800 + Math.round(Math.random() * 50),
   800 + Math.round(Math.random() * 50),
   600,
+  635,
+  635,
+  635,
 ];
+//Y array
 const y = [
   Math.round(Math.random() * 520),
   495,
@@ -30,16 +37,22 @@ const y = [
   Math.round(Math.random() * 520),
   Math.round(Math.random() * 520),
   0,
+  85,
+  85,
+  85,
 ];
-const xSpeed = [0, 2, 1];
-const ySpeed = [0];
-
-requestAnimationFrame(animation);
-function animation() {
-  moveGround();
+//Speed array's
+const xSpeed = [0, 2, 1, 2, 2, 1];
+const ySpeed = [0, 1, 1, 1];
+//Animation
+if (onAndOff) {
   requestAnimationFrame(animation);
+  function animation() {
+    movementAndDetection();
+    requestAnimationFrame(animation);
+  }
 }
-
+//Sonic keyboard movement
 document.addEventListener("keydown", keydownHandler);
 function keydownHandler(event) {
   if (event.code == "KeyW") {
