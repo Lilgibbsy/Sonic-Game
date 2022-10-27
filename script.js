@@ -32,8 +32,8 @@ const x = [
   635,
   635,
   635,
-  635,
-  635,
+  750,
+  750,
 ];
 //Y array
 const y = [
@@ -49,18 +49,17 @@ const y = [
   85,
   85,
   85,
-  85,
-  85,
+  599,
+  599,
 ];
 //Speed array's
 const xSpeed = [0, 2, 1, 2, 2, 1, 2, 2];
 const ySpeed = [0, 1, 1, 1, 2, 2, 0.5];
 //Animation
 
-requestAnimationFrame(animation);
+setInterval(animation, 2);
 function animation() {
   movementAndDetection();
-  requestAnimationFrame(animation);
 }
 
 //Sonic keyboard movement

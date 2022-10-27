@@ -1,7 +1,7 @@
 function movementAndDetection() {
   if (onAndOff) {
     //Level Counter
-    document.getElementById("level").innerHTML = "Level " + levelCounter + "/5";
+    document.getElementById("level").innerHTML = "Level " + levelCounter + "/4";
     //Backgorund
     ctx.beginPath();
     ctx.fillStyle = "aqua";
@@ -71,7 +71,12 @@ function movementAndDetection() {
     ctx.beginPath();
     ctx.font = "15px Comic Sans MS";
     ctx.fillStyle = "black";
-    ctx.fillText("Score: " + points, 635, 553);
+    ctx.fillText("Score: " + points, 0, 553);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "20px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.fillText("Level " + levelCounter + "/4", 0, 533);
     ctx.restore();
     //Ring one movement and collision
     x[0] -= xSpeed[1];
@@ -256,7 +261,7 @@ function movementAndDetection() {
       ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
       ctx.restore();
     }
-    //Finish level 1
+    //Finish level 1 at 25 points
     if (levelOneOnAndOff) {
       if (points == 25) {
         xSpeed[3] += 1;
@@ -269,7 +274,7 @@ function movementAndDetection() {
         levelOneOnAndOff = false;
       }
     }
-    //Finish level 2
+    //Finish level 2 at 50 points
     if (levelTwoOnAndOff) {
       if (points == 50) {
         levelCounter += 1;
@@ -278,13 +283,17 @@ function movementAndDetection() {
       }
     }
     if (newLasers) {
-      //Laser beam diagonal right
+      //Laser beam diagonal right two
+
       ctx.beginPath();
       ctx.strokeStyle = "red";
       ctx.moveTo(x[12], y[12]);
       ctx.lineTo(x[12] + 25, y[12] + 50);
       ctx.stroke();
       ctx.restore();
+
+      //Laser beam diagonal left two
+
       ctx.beginPath();
       ctx.strokeStyle = "red";
       ctx.moveTo(x[13], y[13]);
@@ -292,6 +301,7 @@ function movementAndDetection() {
       ctx.stroke();
       ctx.restore();
 
+      //New lasers movement
       x[12] += xSpeed[6];
       y[12] += ySpeed[4];
       x[13] -= xSpeed[7];
@@ -357,7 +367,7 @@ function movementAndDetection() {
         ctx.restore();
       }
     }
-    //Finish level 3
+    //Finish level 3 at 75 points
     if (levelThreeOnAndOff) {
       if (points == 75) {
         levelCounter += 1;
@@ -368,5 +378,15 @@ function movementAndDetection() {
     if (yMoveDrEggman) {
       y[8] += ySpeed[6];
     }
+  }
+  //finish level 4 at 100 points
+  if (points == 100) {
+    onAndOff = false;
+    ctx.beginPath();
+    ctx.font = "100px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("You Win!!", cnv.width / 2, cnv.height / 2);
+    ctx.restore();
   }
 }
