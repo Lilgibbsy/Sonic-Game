@@ -8,3 +8,19 @@ body {
 img {
   display: none;
 }
+#resetButton {
+  border: solid 1px black;
+  width: 40px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  background-color: red;
+}
+#resetBtn {
+  text-decoration: none;
+  color: black;
+}
+#resetBtn:visited {
+  text-decoration: none;
+  color: black;
+}
