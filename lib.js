@@ -201,7 +201,7 @@ function movementAndDetection() {
     }
     //Finish level 1 at 25 points
     if (levelOneOnAndOff) {
-      if (points == 1) {
+      if (points == 25) {
         xSpeed[3] += 1;
         xSpeed[4] += 1;
         xSpeed[5] += 1;
@@ -214,7 +214,7 @@ function movementAndDetection() {
     }
     //Finish level 2 at 50 points
     if (levelTwoOnAndOff) {
-      if (points == 2) {
+      if (points == 50) {
         levelCounter += 1;
         newLasers = true;
         levelTwoOnAndOff = false;
@@ -256,7 +256,7 @@ function movementAndDetection() {
 
     //Finish level 3 at 75 points
     if (levelThreeOnAndOff) {
-      if (points == 3) {
+      if (points == 75) {
         levelCounter += 1;
         yMoveDrEggman = true;
         levelThreeOnAndOff = false;
