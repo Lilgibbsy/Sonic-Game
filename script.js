@@ -57,7 +57,7 @@ const xSpeed = [0, 2, 1, 2, 2, 1, 2, 2];
 const ySpeed = [0, 1, 1, 1, 2, 2, 0.5];
 //Animation
 
-setInterval(animation, 2);
+setInterval(animation, 1.5);
 function animation() {
   movementAndDetection();
 }

@@ -71,12 +71,18 @@ function movementAndDetection() {
     ctx.beginPath();
     ctx.font = "15px Comic Sans MS";
     ctx.fillStyle = "black";
-    ctx.fillText("Score: " + points, 0, 553);
+    ctx.textAlign = "center";
+    ctx.fillText("Score: " + points, cnv.width / 2, cnv.height / 2);
     ctx.restore();
     ctx.beginPath();
     ctx.font = "20px Comic Sans MS";
     ctx.fillStyle = "black";
-    ctx.fillText("Level " + levelCounter + "/4", 0, 533);
+    ctx.textAlign = "center";
+    ctx.fillText(
+      "Level " + levelCounter + "/4",
+      cnv.width / 2,
+      cnv.height / 2 - 20
+    );
     ctx.restore();
     //Ring one movement and collision
     x[0] -= xSpeed[1];
@@ -193,77 +199,9 @@ function movementAndDetection() {
     if (y[1] >= 495) {
       ySpeed[0] = 0;
     }
-
-    //Laser-player collision detection
-    if (
-      x[1] - x[9] < 25 &&
-      y[1] - y[9] < 25 &&
-      x[1] - x[9] > -25 &&
-      y[1] - y[9] > -25
-    ) {
-      console.log(onAndOff);
-      onAndOff = false;
-      let scoreResponse = 100 - points;
-      ctx.beginPath();
-      ctx.font = "100px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
-      ctx.restore();
-      ctx.beginPath();
-      ctx.font = "30px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
-      ctx.restore();
-    }
-    if (
-      x[1] - x[10] < 25 &&
-      y[1] - y[10] < 25 &&
-      x[1] - x[10] > -25 &&
-      y[1] - y[10] > -25
-    ) {
-      console.log(onAndOff);
-      onAndOff = false;
-      let scoreResponse = 100 - points;
-      ctx.beginPath();
-      ctx.font = "100px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
-      ctx.restore();
-      ctx.beginPath();
-      ctx.font = "30px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
-      ctx.restore();
-    }
-    if (
-      x[1] - x[11] < 25 &&
-      y[1] - y[11] < 25 &&
-      x[1] - x[11] > -25 &&
-      y[1] - y[11] > -25
-    ) {
-      console.log(onAndOff);
-      onAndOff = false;
-      let scoreResponse = 100 - points;
-      ctx.beginPath();
-      ctx.font = "100px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
-      ctx.restore();
-      ctx.beginPath();
-      ctx.font = "30px Comic Sans MS";
-      ctx.fillStyle = "black";
-      ctx.textAlign = "center";
-      ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
-      ctx.restore();
-    }
     //Finish level 1 at 25 points
     if (levelOneOnAndOff) {
-      if (points == 25) {
+      if (points == 1) {
         xSpeed[3] += 1;
         xSpeed[4] += 1;
         xSpeed[5] += 1;
@@ -276,7 +214,7 @@ function movementAndDetection() {
     }
     //Finish level 2 at 50 points
     if (levelTwoOnAndOff) {
-      if (points == 50) {
+      if (points == 2) {
         levelCounter += 1;
         newLasers = true;
         levelTwoOnAndOff = false;
@@ -314,62 +252,11 @@ function movementAndDetection() {
         x[13] = x[8] + 25;
         y[13] = y[8] + 85;
       }
-      if (
-        x[1] - x[12] < 25 &&
-        y[1] - y[12] < 25 &&
-        x[1] - x[12] > -25 &&
-        y[1] - y[12] > -25
-      ) {
-        console.log(onAndOff);
-        onAndOff = false;
-        let scoreResponse = 100 - points;
-        ctx.beginPath();
-        ctx.font = "100px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
-        ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
-        ctx.restore();
-        ctx.beginPath();
-        ctx.font = "30px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
-        ctx.fillText(
-          scoreResponse + " away",
-          cnv.width / 2,
-          cnv.height / 2 + 50
-        );
-        ctx.restore();
-      }
-      if (
-        x[1] - x[13] < 25 &&
-        y[1] - y[13] < 25 &&
-        x[1] - x[13] > -25 &&
-        y[1] - y[13] > -25
-      ) {
-        console.log(onAndOff);
-        onAndOff = false;
-        let scoreResponse = 100 - points;
-        ctx.beginPath();
-        ctx.font = "100px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
-        ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
-        ctx.restore();
-        ctx.beginPath();
-        ctx.font = "30px Comic Sans MS";
-        ctx.fillStyle = "black";
-        ctx.textAlign = "center";
-        ctx.fillText(
-          scoreResponse + " away",
-          cnv.width / 2,
-          cnv.height / 2 + 50
-        );
-        ctx.restore();
-      }
     }
+
     //Finish level 3 at 75 points
     if (levelThreeOnAndOff) {
-      if (points == 75) {
+      if (points == 3) {
         levelCounter += 1;
         yMoveDrEggman = true;
         levelThreeOnAndOff = false;
@@ -383,10 +270,94 @@ function movementAndDetection() {
   if (points == 100) {
     onAndOff = false;
     ctx.beginPath();
+    ctx.fillStyle = "aqua";
+    ctx.fillRect(0, 0, 700, 600);
+    ctx.restore();
+    ctx.beginPath();
     ctx.font = "100px Comic Sans MS";
     ctx.fillStyle = "black";
     ctx.textAlign = "center";
     ctx.fillText("You Win!!", cnv.width / 2, cnv.height / 2);
+    ctx.restore();
+  }
+
+  //Laser-player collision detection
+  if (
+    x[1] - x[9] < 25 &&
+    y[1] - y[9] < 25 &&
+    x[1] - x[9] > -25 &&
+    y[1] - y[9] > -25
+  ) {
+    console.log(onAndOff);
+    onAndOff = false;
+    let scoreResponse = 100 - points;
+    ctx.beginPath();
+    ctx.fillStyle = "aqua";
+    ctx.fillRect(0, 0, 700, 600);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "100px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
+    ctx.restore();
+  }
+  if (
+    x[1] - x[10] < 25 &&
+    y[1] - y[10] < 25 &&
+    x[1] - x[10] > -25 &&
+    y[1] - y[10] > -25
+  ) {
+    console.log(onAndOff);
+    onAndOff = false;
+    let scoreResponse = 100 - points;
+    ctx.beginPath();
+    ctx.fillStyle = "aqua";
+    ctx.fillRect(0, 0, 700, 600);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "100px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
+    ctx.restore();
+  }
+  if (
+    x[1] - x[11] < 25 &&
+    y[1] - y[11] < 25 &&
+    x[1] - x[11] > -25 &&
+    y[1] - y[11] > -25
+  ) {
+    console.log(onAndOff);
+    onAndOff = false;
+    let scoreResponse = 100 - points;
+    ctx.beginPath();
+    ctx.fillStyle = "aqua";
+    ctx.fillRect(0, 0, 700, 600);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "100px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText("GameOver", cnv.width / 2, cnv.height / 2);
+    ctx.restore();
+    ctx.beginPath();
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.fillText(scoreResponse + " away", cnv.width / 2, cnv.height / 2 + 50);
     ctx.restore();
   }
 }
